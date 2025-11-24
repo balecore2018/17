@@ -20,11 +20,25 @@ namespace else_no_fix_ya_go_to_home
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string localPath;
         public MainWindow()
         {
             InitializeComponent();
+            localPath = System.IO.Directory.GetCurrentDirectory();
+            OpenPages(pages.main);
             frame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
             frame.Navigated += (s, e) => { frame.NavigationService.RemoveBackEntry(); };
+        }
+
+        public enum pages
+        {
+            main
+        }
+
+        public void OpenPages(pages _pages)
+        {
+            if (_pages == pages.main) 
+                frame.Navigate(new Layouts.Main(this));
         }
     }
 }
