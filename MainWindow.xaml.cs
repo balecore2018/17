@@ -23,6 +23,8 @@ namespace else_no_fix_ya_go_to_home
         public MainWindow()
         {
             InitializeComponent();
+            frame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
+            frame.Navigated += (s, e) => { frame.NavigationService.RemoveBackEntry(); };
         }
     }
 }
