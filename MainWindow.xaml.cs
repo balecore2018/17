@@ -38,7 +38,7 @@ namespace else_no_fix_ya_go_to_home
         public void OpenPages(pages _pages)
         {
             if (_pages == pages.main) 
-                frame.Navigate(new Layouts.Main(this));
+                frame.Navigate(new Main(this));
         }
     }
 }
